@@ -15,10 +15,9 @@ source install.sh
 ```
 Add the link from `curllink.dat` to your ntfy app to get notification on phone or on your desktop ntfy app.
 ### Manual Installation
+Make an executable script
 ```
 cp logalert.sh logalert
-```
-```
 chmod +x logalert
 ```
 Generate link for ntfy.sh or customize your link if you have a notification server
@@ -28,13 +27,18 @@ source linkgen.sh
 Add the following to `.bashrc` under `#User specific aliases and functions`. This can be customized.
 ```
 alias logalert='/path/to/logalert'
+alias logalert='/path/to/lalert'
 ```
 
 ## Using the Script
-Type into the terminal `loglert logname.log &`, this will track the log every 60 seconds (not precise), using it on a completed log file will instantly prints done. Recommended using it with `screen` package on a separate screen.
+Type into the terminal `loglert logname.log &` (or lalert), this will track the log every 60 seconds (not precise), using it on a completed log file will instantly prints done. Recommended using it with `screen` package on a separate screen.
 ### Options
  - `p` Will send notification via ntfy when the job terminates
  - `d` A debugging option and will echo out the termlink and phonelink
+Example:
+```
+logalert -p logname.log
+```
 Silent option is to be implemented, the program by default will echo to terminal when it is done
 ### Script Termination Condition
 The script only checks for the string `Normal termination` or `Error termination` since my coding is not so robust, it will keep looping until they are found. If Gaussian is interrupted and the exit do not write to log, the script will run indefinitely. To solve this, user can manually type `Normal termination` or `Error termination` exactly at the end of the file or kill the pid of the script.
