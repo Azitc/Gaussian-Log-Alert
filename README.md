@@ -29,6 +29,12 @@ Add the following to `.bashrc` under `#User specific aliases and functions`. Thi
 alias logalert='/path/to/logalert'
 alias logalert='/path/to/lalert'
 ```
+## ntfy App
+The app is extremely simple to use, follow these step
+1. Download the app
+2. Press on + to add subscription
+3. Type in the string in `curllink.dat` after `ntfy.sh/` eg. `g16alert_xxxxxx000000` (default server is ntfy.sh)
+This will set you up for the notification on that device. To test, run the script with `p` option on a completed log file
 
 ## Using the Script
 Type into the terminal `loglert logname.log &` (or lalert), this will track the log every 60 seconds (not precise), using it on a completed log file will instantly prints done. Recommended using it with `screen` package on a separate screen.
